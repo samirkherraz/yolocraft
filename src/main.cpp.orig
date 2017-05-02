@@ -1,0 +1,57 @@
+#include <iostream>
+#include "World.h"
+#include "AbstractObject.h"
+#include "Mobile.h"
+#include "Game.h"
+#include "BodyWork.h"
+
+using namespace std;
+
+int main()
+{
+
+   /* Player player1;
+    World world;
+    Map map;
+    Mobile userVehicule;
+
+    World w;
+    w.setGravity(Point(0, -10));
+    Point pos;
+    Point size;
+    pos.x = 0;
+    pos.y = 0;
+    size.x = 1;
+    size.y = 1;
+    AbstractObject* ab = new AbstractObject();
+
+    Mobile* m = new Mobile();
+    m->setPosition(Point(1280, 3000));
+    m->setSize(Point(2, 1));
+    m->addPart(Point(0, 0), ab);
+    m->addPart(Point(1, 0), ab);
+
+    w.createBody(m);
+    while(true) {
+        w.step();
+        cout << w.getBodies()->at(0)->GetPosition().x << "|" << w.getBodies()->at(0)->GetPosition().y << endl;
+    }
+     * 
+     * **/
+     
+<<<<<<< working copy
+     /*Game * c = new Game();
+     c->initGame();*/
+     Point p;
+     AbstractObject a;
+     
+     p.resgressionTest();
+     a.regressionTest();
+}=======
+     //Game * c = new Game();
+     //c->initGame();
+     
+     BodyWork * b = new BodyWork();
+     b->regressionTest();
+}
+>>>>>>> destination

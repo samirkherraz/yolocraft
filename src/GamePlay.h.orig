@@ -1,0 +1,41 @@
+#ifndef CAMERA_H
+#define CAMERA_H
+
+#include "World.h"
+#include "Loop.h"
+using namespace std;
+
+class GamePlay : public Loop
+{
+private:
+    int fade;
+    void drawMapGround();
+    void drawMapBackground();
+    void drawBodies();
+    void initMapGround();
+    void initMapBackground();
+
+    void initBodies();
+    void catchEvents();
+    double updateOffset();
+    World* world;
+
+    vector<SDL_Surface*> bodies;
+    vector<SDL_Surface*> mapGroundSurface;
+    vector<SDL_Surface*> mapBackgroundSurface;
+    vector<string> hashTags;
+
+    double OffsetX;
+    bool OffsetMove;
+    double LastOffsetX;
+    bool validBodies();
+
+public:
+
+    GamePlay(SDL* sdl);
+    virtual ~GamePlay();
+    virtual void start();
+    void setWorld(World* new_world);
+};
+
+#endif

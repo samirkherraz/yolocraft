@@ -1,0 +1,44 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
+#include <string>
+#include <Box2D/Box2D.h>
+#include "Mobile.h"
+
+
+using namespace std;
+
+class Player : public AbstractObject
+{
+
+private:
+    string name;
+    Mobile* mobile;
+    b2Body* box2dmobile;
+    unsigned int wallet;
+    Point fireTarget;
+    vector<AbstractObject*> my_shapes;
+
+public:
+     Player();
+    Player(string _name);
+    virtual ~Player();
+
+    void newGain(unsigned int amount); // Ajoute amount au wallet
+    void loseGain(unsigned int amount);     // Retire amount au wallet
+    unsigned int getGain();                 // Renvoie le wallet
+
+    void buyShape(AbstractObject* part);
+    vector<AbstractObject*> getShapes();
+
+    void setMobile(Mobile* newMobile); // Défini le mobile
+    Mobile* getMobile();               // Renvoie le mobile
+
+    void setName(string newName); // Défini le nom du player
+    string getName();             // Renvoie le nom du player
+    void doAction(int ACTION);
+    void setB2Mobile(b2Body* newMobile);
+    b2Body* getB2Mobile();
+    void setFireTarget(Point target);
+};
+#endif

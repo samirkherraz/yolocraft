@@ -1,0 +1,152 @@
+#ifndef ACTION_H
+#define ACTION_H
+
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
+#include "AbstractObject.h"
+#include <vector>
+/** @breif Cette classe stocke les parties communes réutilisées par toutes les classes. Elle gère également la musique et le bruitage */
+enum Actions {
+
+    GO_FORWARD,
+    GO_BACKWARD,
+    GO_UPWARD,
+    GO_DOWNWARD,
+    GO_UP,
+    FIRE,
+    STOP_MOTOR,
+    PLAY,
+    QUIT,
+    SHOP_MENU,
+    CRAFT_MENU,
+    TOGGLE,
+    BUY,
+    FADEINOUT,
+    FADEIN,
+    FADEOUT,
+    NOFADE,
+    CONSTRUCT,
+    NOACTION
+};
+
+enum Shapes {
+    WHEEL,
+    BODYWORK,
+    ANGLE_LEFT_DOWN,
+    ANGLE_LEFT_UP,
+    ANGLE_RIGHT_DOWN,
+    ANGLE_RIGHT_UP,
+    WEAPON,
+    ROCKET,
+    EXPLOSION_1,
+    EXPLOSION_2,
+    EXPLOSION_3,
+    EXPLOSION_4,
+    CELL,
+    EMPTY,
+    BUTTON,
+    SELECTED,
+    UNSELECTED
+
+};
+
+enum Audios {
+    AUDIO_GAMEPLAY,
+    AUDIO_MENU,
+    AUDIO_FIRE,
+    AUDIO_CONSTRUCT,
+    AUDIO_TRANSITION,
+    AUDIO_CLICK,
+    AUDIO_EXPLODE,
+    AUDIO_INTRO,
+    AUDIO_MOTOR
+    };
+const int MAX_MOTOR_SPEED = 25;
+const double BOX_SIZE = 30;
+const int WINDOW_W = 960;
+const int WINDOW_H = 540;
+const int MAP_X_STEP = 100;
+const double BOX2D_SCALE = 100;
+const int SPLASH_TIME = 2000;
+const int NB_IA = 15;
+const bool FULLSCREEN = true;
+
+class Common
+{
+public:
+    static int _AbstractObject;
+    static int _ContactListner;
+    static int _Game;
+    static int _GamePlay;
+    static int _Grid;
+    static int _Loop;
+    static int _Map;
+    static int _Menu;
+    static int _MenuCraft;
+    static int _MenuEntry;
+    static int _MenuShop;
+    static int _Mobile;
+    static int _Player;
+    static int _SDL;
+    static int _Splash;
+    static int _World;
+
+    static SDL_Surface* surface_button;
+    static SDL_Surface* surface_cell;
+    static SDL_Surface* surface_selected;
+    static SDL_Surface* surface_wheel;
+    static SDL_Surface* surface_bodywork;
+    static SDL_Surface* surface_angle_left_up;
+    static SDL_Surface* surface_angle_left_down;
+    static SDL_Surface* surface_angle_right_up;
+    static SDL_Surface* surface_angle_right_down;
+    static SDL_Surface* surface_weapon;
+    static SDL_Surface* surface_gameplay_background;
+    static SDL_Surface* surface_menu_background;
+    static SDL_Surface* surface_empty;
+    static SDL_Surface* surface_splash_screen;
+
+    static SDL_Surface* surface_rocket;
+    static SDL_Surface* surface_explosion_1;
+    static SDL_Surface* surface_explosion_2;
+    static SDL_Surface* surface_explosion_3;
+    static SDL_Surface* surface_explosion_4;
+
+    static Mix_Music* music_background_menu;
+    static Mix_Music* music_background_gameplay;
+    static Mix_Chunk* audio_fire;
+    static Mix_Chunk* audio_motor;
+    static Mix_Chunk* audio_rocket_explode;
+    static Mix_Chunk* audio_button_click;
+    static Mix_Chunk* audio_transition;
+    static Mix_Chunk* audio_intro;
+    static Mix_Chunk* audio_construct;
+
+    static AbstractObject* angle_right_up;
+    static AbstractObject* angle_right_down;
+    static AbstractObject* angle_left_up;
+    static AbstractObject* angle_left_down;
+    static AbstractObject* bodywork;
+    static AbstractObject* wheel;
+    static AbstractObject* weapon;
+    static AbstractObject* rocket;
+    static int gridID;
+
+    static TTF_Font* police;
+    static vector<AbstractObject*> shapes;
+    static vector<AbstractObject*> bought_shapes;
+    static SDL_Surface* getSurfaceOfType(unsigned int type);
+    static AbstractObject* getObjectOfType(unsigned int type);
+    static void init();
+    static SDL_Surface* createSurface(string image);
+    
+    static void stopAudio();
+    static void playAudio(unsigned int audio);
+
+    
+    static void destroy();
+};
+
+#endif

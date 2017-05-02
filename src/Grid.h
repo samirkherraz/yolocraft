@@ -1,0 +1,70 @@
+#ifndef Grid_H
+#define Grid_H
+
+#include <vector>
+#include <string>
+#include "AbstractObject.h"
+#include "Common.h"
+using namespace std;
+/**@brief La structure AbstractObjectPart a un tableau d'AbstractObject.
+ * @param obj: pointeur sur la classe AbstractObject
+ * @param size: Point de position d'arrivé du dernier élément AbstractObject.
+ * @param pos: Point de position de départ du premier élément AbstractObject.
+ * */
+struct AbstractObjectPart
+{
+    AbstractObject* obj = NULL;
+    Point size;
+    Point pos;
+};
+
+/**@brief La classe Grid permet d'instancier une grille d'objets de type AbstractObject. 
+ * @param parts: pointeur sur AbstractObjectPart. 
+ * @param size: Point représentant la taille de la grille
+ * @param getPosOfPart: int (cf la description de cette fonction)
+ * */
+class Grid
+{
+
+public:
+    Grid();
+    ~Grid();
+    /**@brief addPart permet d'ajouter un objet (de type AbstractObject) à une position précise de la grille. 
+ * @param pos: Point qui indique l'endroit ou l'objet va être insérée.
+ * @param part: AbstractObject qui indique l'objet à insérer. 
+ * @return none 
+ * */
+    void addPart(Point pos, AbstractObject* part);
+    void removePart(Point pos);
+    /**@brief getPart permet de récupérer un objet (de type AbstractObject) à une position précise de la grille. 
+ * @param pos: Point qui indique la position de l'objet à récupérer. 
+ * @return AbstractObject 
+ * */
+    AbstractObject* getPart(Point pos);
+    Point getSize();
+    int getChildrenLife();
+    int getDammage();
+    string getHash();
+    int getLife();
+    void* getParent();
+    void setParent(void* p);
+    void setLife(int p);
+
+    void loseLife(unsigned int dammage);
+
+protected:
+    string hash;
+    int id;
+    int life;
+    int dammage;
+    void* parent;
+    vector<AbstractObjectPart> parts;
+    Point size;    
+/**@brief getPosOfPart permet de récupérer la position d'un objet dans le tableau d'objets.
+ * @param pos: Point qui indique la position de l'objet dont on veut récupérer la position dans le tableau. 
+ * @return int 
+ * */
+    int getPosOfPart(Point pos);
+};
+
+#endif // MOBILE_H

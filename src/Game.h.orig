@@ -1,0 +1,45 @@
+#ifndef GAME_H
+#define GAME_H
+
+#include <vector>
+
+#include "Splash.h"
+#include "GamePlay.h"
+#include "Menu.h"
+
+
+class Game : public Loop
+{
+
+private:
+    SDL* sdl;
+    Map* map;
+    GamePlay* game_play;
+    Menu* menu;
+    Player* main_player;
+    Splash* splash;
+    vector<Player*> ia_players;
+    World* world;
+    void initSdl();
+    void initMap();
+    void initGamePlay();
+    void initMenu();
+    void initSplash();
+    void initPlayer();
+    void initWorld();
+    bool startMenu();
+    bool startGamePlay();
+    void initIaPlayers();
+    void initIa();
+    void startSplash();
+    
+
+
+public:
+    Game();
+    virtual ~Game();
+    virtual void start();
+
+};
+
+#endif // GAME_H

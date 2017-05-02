@@ -1,0 +1,38 @@
+#ifndef MENU_H
+#define MENU_H
+#include <string>
+
+#include "MenuCraft.h"
+#include "MenuShop.h"
+#include "Player.h"
+#include "Loop.h"
+
+class Menu : public Loop
+{
+private:
+    MenuCraft* menucraft;
+    MenuShop* menushop;
+    MenuEntry* currentMenu;
+    unsigned int atLeastOneBodyWork = 0; // Existe-t-il au moins un bodywork ?
+    bool mouseOverButton(Point mousePosition, Button btn);
+
+    void initScreen();
+    void eventManager();
+    void doAction(Button &btn);
+    vector<unsigned int> somethingIsNear(unsigned int idButton);
+    bool canBePlacedOnIt(Button buttonToPlaced, unsigned int idButton, int ignore = -1);
+    void doGrid(unsigned int idButton);
+    Player* main_player;
+    bool constructPlayer();
+
+public:
+    Menu(SDL* sdl, Player* player);
+    virtual ~Menu();
+    void setPlayer(Player* player);
+    Player* getPlayer() const;
+    virtual void start();
+
+    // void addElement(menuElement m_el);
+};
+
+#endif // MENU_H
