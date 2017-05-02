@@ -65,7 +65,7 @@ Arme: Elles peuvent envoyer des projectils afin d'attaquer l'ennemi.
 - Pour quitter, appuyez sur le bouton "Quitter" sur le menu principal.
 
 
-# RÉSENTATION::Noms(){
+# RÉSENTATION:
 les étudiants ayant paticipé à ce projet sont:
 - Samir Kherraz
 - Kevin Saddeki
