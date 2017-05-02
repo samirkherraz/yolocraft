@@ -1,9 +1,5 @@
-<rawtext>
- __   _____  _    ___   ___ ___    _   ___ _____ 
- \ \ / / _ \| |  / _ \ / __| _ \  /_\ | __|_   _|
-  \ V / (_) | |_| (_) | (__|   / / _ \| _|  | |  
-   |_| \___/|____\___/ \___|_|_\/_/ \_\_|   |_|  
-</rawtext>
+# YOLOCRAFT
+
 # À PROPOS DE CE PROJET: 
 
 Notre projet consistait à réaliser un jeu de véhicule. Celui-ci devra parcourir une map, tuer ses ennemis afin de récolter des gains et ainsi pouvoir s'acheter
